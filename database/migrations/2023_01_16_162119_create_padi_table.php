@@ -13,20 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('padi', function (Blueprint $table) {
+        Schema::create('bis', function (Blueprint $table) {
             $table->id();
-            $table->string('varietas')->unique();
-            $table->string('bentuk_gabah');
-            $table->string('bentuk_tanaman');
-            $table->integer('berat');
-            $table->string('daun_bendera');
-            $table->string('tekstur_nasi');
-            $table->integer('umur');
-            $table->string('hama');
-            $table->string('pencegahan');
-            $table->integer('hasil_sebelum');
-            $table->string('hasil_terkena');
-            $table->string('img');
+            $table->string('bis')->unique();
+            $table->string('rombongan');
+            $table->string('waktu_datang');
+            $table->integer('waktu_pulang');
+            $table->string('asal');
             $table->timestamps();
         });
     }
@@ -38,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('padi');
+        Schema::dropIfExists('bis');
     }
 };

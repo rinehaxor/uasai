@@ -6,9 +6,9 @@
             <div class="col-md-8">
                 <form action="{{ route('search') }}" method="get">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Semua Varietas" name="varietas" id="input1">
-                        <input type="number" class="form-control" placeholder="Hasil Panen" name="panen" id="input2">
-                        <input type="text" class="form-control" placeholder="Umur Padi (lebih)" name="umur" id="input3">
+                        <input type="text" class="form-control" placeholder="Bis" name="bis" id="input1">
+                        <input type="text" class="form-control" placeholder="waktu datang" name="waktu_datang" id="input2">
+                        <input type="text" class="form-control" placeholder="asal" name="asal" id="input3">
                         <button class="btn btn-outline-secondary" type="submit">Search</button>
                     </div>
                 </form>
@@ -17,10 +17,11 @@
                         <thead>
                           <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Varietas</th>
-                            <th scope="col">Hasil Panen</th>
-                            <th scope="col">Hama</th>
-                            <th scope="col">Dampak</th>
+                            <th scope="col">Bis</th>
+                            <th scope="col">Rombongan</th>
+                            <th scope="col">Waktu Datang</th>
+                            <th scope="col">Waktu Pulang</th>
+                            <th scope="col">Asal</th>
                             <th scope="col">Aksi</th>
                           </tr>
                         </thead>
@@ -28,12 +29,13 @@
                             @foreach ($datas as $key => $data)
                                 <tr>
                                     <th>{{ $key+1 }}</th>
-                                    <th>{{ $data->varietas }}</th>
-                                    <td>{{ $data->hasil_sebelum }}</td>
-                                    <td>{{ $data->hama }}</td>
-                                    <td>{{ $data->hasil_terkena }}</td>
+                                    <th>{{ $data->bis }}</th>
+                                    <td>{{ $data->rombongan }}</td>
+                                    <td>{{ $data->waktu_datang }}</td>
+                                    <td>{{ $data->waktu_pulang }}</td>
+                                    <td>{{ $data->asal }}</td>
                                     <td class="d-flex">
-                                        <a href="{{ route('padi.edit', $data->id) }}">
+                                        <a href="{{ route('bis.edit', $data->id) }}">
                                             <div class="btn-group btn-group-sm">
                                                 <button class="btn">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -43,7 +45,7 @@
                                                 </button>
                                             </div>
                                         </a>
-                                        <form action="{{ route('padi.destroy',$data->id) }}" method="post">
+                                        <form action="{{ route('bis.destroy',$data->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <div class="btn-group btn-group-sm">

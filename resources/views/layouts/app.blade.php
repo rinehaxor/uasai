@@ -31,14 +31,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @guest
-                            <a class="nav-link" href="{{ url('/') }}">
-                                Home
-                            </a>
+                         
                         @else
-                            <a class="nav-link" href="{{ url('/') }}">
-                                Home
-                            </a>
-                            <a class="nav-link" href="{{ route('padi.index') }}">
+                          
+                            <a class="nav-link" href="{{ route('bis.index') }}">
                                 Admin
                             </a>
                         @endguest
